@@ -23,7 +23,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 /**
  * AuthProvider Component
- * Manages user authentication state
+ * Manages user authentication state for both OAuth (Google) and email/password methods.
+ * 
+ * Supported authentication methods:
+ * - Google OAuth via Supabase
+ * - Email/password registration and login via Supabase
+ * 
+ * The auth context transparently handles both methods - the user object
+ * structure is identical regardless of login method, and signOut() works
+ * for both OAuth and email/password sessions.
  */
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);

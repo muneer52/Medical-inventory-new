@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Cloud } from 'lucide-react';
+import { Cloud, LogOut } from 'lucide-react';
 import { AuthProvider, useAuth } from './lib/auth';
+import { SignIn } from './components/SignIn';
 import { InventoryCreate } from './components/InventoryCreate';
 import { InventoryList } from './components/InventoryList';
 import { InventoryDetailsView } from './components/InventoryDetails';
@@ -10,7 +11,7 @@ import { ApprovalDashboard } from './components/ApprovalDashboard';
 type PageView = 'dashboard' | 'inventory-details' | 'approval-dashboard';
 
 function AppContent() {
-  const { user, loading } = useAuth();
+  const { user, loading, signOut } = useAuth();
   const [currentView, setCurrentView] = useState<PageView>('dashboard');
   const [selectedInventoryId, setSelectedInventoryId] = useState<string | null>(null);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -34,6 +35,10 @@ function AppContent() {
     setRefreshTrigger((prev) => prev + 1);
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center px-6 py-12">
@@ -42,6 +47,11 @@ function AppContent() {
         </div>
       </div>
     );
+  }
+
+  // Show SignIn component if user is not authenticated
+  if (!user) {
+    return <SignIn />;
   }
 
   return (
@@ -53,9 +63,19 @@ function AppContent() {
             <Cloud className="h-8 w-8 text-cyan-400" />
             <h1 className="text-2xl font-bold">MediStock</h1>
           </div>
-          <div className="text-sm">
-            <p className="text-slate-400">Signed in as</p>
-            <p className="font-medium">{user?.email ?? 'Guest User'}</p>
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-right">
+              <p className="text-slate-400">Signed in as</p>
+              <p className="font-medium">{user?.email ?? 'Guest User'}</p>
+            </div>
+            <button
+              onClick={handleSignOut}
+              className="ml-4 inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 px-3 py-2 text-sm font-medium text-slate-100 transition-colors"
+              title="Sign out from this device"
+            >
+              <LogOut className="h-4 w-4" />
+              Sign Out
+            </button>
           </div>
         </div>
       </header>

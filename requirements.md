@@ -52,11 +52,18 @@ A simplified, mobile-first inventory tracker for shared medical supplies. Focuse
 - Offline view capability.
 - "Add to Home Screen" shortcut.
 
+### E. Email/Password Authentication
+- Users can register with email and password (in addition to Google OAuth).
+- Unified login screen supporting both authentication methods.
+- Sign-out button in dashboard header for easy session termination.
+- No approval workflow; users can instantly join after account creation.
+
 ## 5. Implementation Roadmap
 1. **Setup:** Supabase project + Vite/Tailwind boilerplate.
-2. **Auth:** Google OAuth login + user profile creation.
+2. **Auth Phase 1:** Google OAuth login + user profile creation.
 3. **Inventory:** Create inventory and "Join by Code" logic.
 4. **Medicines:** Basic CRUD for adding/editing medicine items.
 5. **Dashboard:** Status-colored list with quick +/- buttons.
 6. **Shopping:** Filtered "Shopping List" view.
-7. **PWA:** Manifest and Service Worker via `vite-plugin-pwa`.
+7. **Auth Phase 2:** Email/password registration, sign-in, and sign-out UI.
+8. **PWA:** Manifest and Service Worker via `vite-plugin-pwa`.
