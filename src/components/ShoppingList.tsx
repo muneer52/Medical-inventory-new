@@ -35,14 +35,17 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ inventoryId }) => {
   };
 
   if (loading) {
-    return <div className="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 text-center text-slate-400">Loading shopping list...</div>;
+    return <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 text-center text-slate-400 shadow-xl shadow-slate-950/10">Loading shopping list...</div>;
   }
 
   return (
-<div className="space-y-4 rounded-2xl border border-slate-700 bg-slate-900/70 p-6">
-      <div className="flex items-center gap-2">
-        <ShoppingCart className="text-cyan-400" size={24} />
-        <h2 className="text-2xl font-bold text-slate-100">Shopping List</h2>
+<div className="space-y-4 rounded-[2rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/10">
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center gap-2">
+          <ShoppingCart className="text-cyan-400" size={24} />
+          <h2 className="text-2xl font-bold text-slate-100">Shopping List</h2>
+        </div>
+        <p className="text-sm text-slate-400">Stock alerts for items that need replenishing.</p>
       </div>
 
       {error && (
@@ -53,14 +56,14 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ inventoryId }) => {
 
       {medicines.length === 0 ? (
         <div className="text-center py-8 text-slate-400">
-          <p>All medicines are in stock! ✓</p>
+          <p className="text-lg font-medium">All medicines are in stock! ✓</p>
         </div>
       ) : (
-        <div className="grid gap-3">
+        <div className="grid gap-4">
           {medicines.map(medicine => (
             <div
               key={medicine.id}
-              className={`border-l-4 rounded-lg p-4 ${statusColors[medicine.status || 'LOW']}`}
+              className={`rounded-[1.5rem] border border-slate-700/40 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/10 ${statusColors[medicine.status || 'LOW']}`}
             >
               <div className="flex justify-between items-start">
                 <div>
@@ -83,7 +86,7 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ inventoryId }) => {
         </div>
       )}
 
-      <div className="mt-6 rounded-2xl border border-slate-700 bg-slate-950/70 p-4">
+      <div className="mt-6 rounded-[1.75rem] border border-slate-700/50 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/10">
         <p className="text-sm text-slate-300">
           <strong>Legend:</strong> Items on this list have quantity below or equal to their threshold.
           <br />

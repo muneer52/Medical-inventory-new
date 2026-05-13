@@ -166,15 +166,17 @@ export function SignIn() {
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="inline-flex items-center justify-center gap-3 rounded-3xl bg-slate-900/70 px-5 py-4 shadow-lg shadow-cyan-500/10">
             <Cloud className="h-8 w-8 text-cyan-400" />
-            <h1 className="text-3xl font-bold">MediStock</h1>
+            <div>
+              <h1 className="text-3xl font-bold">MediStock</h1>
+              <p className="text-sm text-slate-400">Medical Inventory Management</p>
+            </div>
           </div>
-          <p className="text-slate-400">Medical Inventory Management</p>
         </div>
 
         {/* Auth Card */}
-        <div className="rounded-3xl border border-slate-700 bg-slate-900/80 p-8">
+        <div className="rounded-[2rem] border border-slate-700/60 bg-slate-900/90 p-8 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl">
           {/* Error Display */}
           {error && (
             <div className="mb-6 flex items-start gap-3 rounded-lg border border-red-500/30 bg-red-500/10 p-4">

@@ -72,8 +72,8 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-700 bg-slate-950/80 p-4 space-y-4">
-      <h3 className="text-lg font-bold text-slate-100">
+    <form onSubmit={handleSubmit} className="rounded-[1.75rem] border border-slate-700/50 bg-slate-950/90 p-6 space-y-5 shadow-xl shadow-slate-950/10">
+      <h3 className="text-lg font-semibold text-slate-100 tracking-tight">
         {initialMedicine ? 'Edit Medicine' : 'Add New Medicine'}
       </h3>
 
@@ -83,7 +83,7 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
         <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-1">
           Medicine Name *
@@ -95,7 +95,7 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="w-full rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
 
@@ -109,7 +109,7 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
             value={formData.category}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           >
             <option value="Pill">Pill</option>
             <option value="Syrup">Syrup</option>
@@ -131,7 +131,7 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
             value={formData.quantity}
             onChange={handleChange}
             min="0"
-            className="w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
 
@@ -146,7 +146,7 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
             value={formData.threshold}
             onChange={handleChange}
             min="0"
-            className="w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
       </div>
@@ -161,22 +161,22 @@ const MedicineForm: React.FC<MedicineFormProps> = ({
           name="expiry_date"
           value={formData.expiry_date}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="w-full rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
         />
       </div>
 
-      <div className="flex gap-3 justify-end">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 border border-slate-700 rounded-lg text-slate-200 hover:bg-slate-800"
+          className="inline-flex justify-center rounded-2xl border border-slate-700/60 bg-slate-900 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-slate-800"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 disabled:opacity-50"
+          className="inline-flex justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:brightness-110 disabled:opacity-50"
         >
           {loading ? 'Saving...' : initialMedicine ? 'Update' : 'Create'}
         </button>

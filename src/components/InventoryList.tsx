@@ -35,7 +35,7 @@ export function InventoryList({ onSelectInventory, refreshTrigger }: InventoryLi
 
   if (loading) {
     return (
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 text-center shadow-xl shadow-slate-950/10">
         <p className="text-slate-400">Loading inventories...</p>
       </div>
     );
@@ -43,7 +43,7 @@ export function InventoryList({ onSelectInventory, refreshTrigger }: InventoryLi
 
   if (error) {
     return (
-      <div className="flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-red-300">
+      <div className="flex items-center gap-3 rounded-[1.75rem] border border-slate-700/50 bg-rose-950/80 p-6 text-red-300 shadow-lg shadow-rose-950/20">
         <AlertCircle className="h-5 w-5 flex-shrink-0" />
         <p>{error}</p>
       </div>
@@ -52,7 +52,7 @@ export function InventoryList({ onSelectInventory, refreshTrigger }: InventoryLi
 
   if (inventories.length === 0) {
     return (
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 text-center shadow-xl shadow-slate-950/10">
         <Folder className="mx-auto h-12 w-12 text-slate-500 mb-3" />
         <p className="text-slate-400">No inventories yet. Create one to get started!</p>
       </div>
@@ -65,9 +65,9 @@ export function InventoryList({ onSelectInventory, refreshTrigger }: InventoryLi
         <div
           key={inv.id}
           onClick={() => onSelectInventory?.(inv.id)}
-          className="group rounded-2xl border border-slate-700 bg-slate-900/50 p-4 hover:border-cyan-500 hover:bg-slate-900 transition cursor-pointer"
+          className="group rounded-[1.75rem] border border-slate-700/50 bg-slate-900/70 p-4 shadow-md shadow-slate-950/10 transition duration-200 hover:-translate-y-1 hover:border-cyan-500 hover:bg-slate-900 cursor-pointer"
         >
-          <div className="flex items-start justify-between">
+          <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-slate-100 group-hover:text-cyan-300">{inv.name}</h3>
               <div className="mt-2 flex items-center gap-2 text-sm text-slate-400">

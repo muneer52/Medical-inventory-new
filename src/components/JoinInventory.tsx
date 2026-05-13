@@ -79,7 +79,7 @@ export function JoinInventory({ onSuccess }: JoinInventoryProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6">
+    <form onSubmit={handleSubmit} className="rounded-[2rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl">
       <div className="flex items-center gap-3 mb-4">
         <LogIn className="h-5 w-5 text-cyan-400" />
         <h3 className="text-lg font-semibold text-slate-100">Join Inventory</h3>
@@ -100,9 +100,9 @@ export function JoinInventory({ onSuccess }: JoinInventoryProps) {
             setInput('');
             setError(null);
           }}
-          className={`flex-1 px-3 py-2 rounded-lg font-medium text-sm transition ${
+          className={`flex-1 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
             joinMethod === 'code'
-              ? 'bg-cyan-600 text-white'
+              ? 'bg-cyan-500 text-slate-950 shadow-sm shadow-cyan-500/20'
               : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
           }`}
         >
@@ -115,9 +115,9 @@ export function JoinInventory({ onSuccess }: JoinInventoryProps) {
             setInput('');
             setError(null);
           }}
-          className={`flex-1 px-3 py-2 rounded-lg font-medium text-sm transition ${
+          className={`flex-1 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
             joinMethod === 'id'
-              ? 'bg-cyan-600 text-white'
+              ? 'bg-cyan-500 text-slate-950 shadow-sm shadow-cyan-500/20'
               : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
           }`}
         >
@@ -164,7 +164,7 @@ export function JoinInventory({ onSuccess }: JoinInventoryProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-cyan-600 px-4 py-2 font-medium text-white hover:bg-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? 'Joining...' : `Join by ${joinMethod === 'code' ? 'Code' : 'ID'}`}
       </button>

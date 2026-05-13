@@ -66,16 +66,16 @@ const MedicineList: React.FC<MedicineListProps> = ({ inventoryId, isOwner }) => 
   };
 
   if (loading) {
-    return <div className="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 text-center text-slate-400">Loading medicines...</div>;
+    return <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 text-center text-slate-400 shadow-xl shadow-slate-950/10">Loading medicines...</div>;
   }
 
   return (
-    <div className="space-y-4 rounded-2xl border border-slate-700 bg-slate-900/70 p-6">
+    <div className="space-y-4 rounded-[2rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/10">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-slate-100">Medicines</h2>
         <button
           onClick={() => setShowForm(true)}
-          className="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-500 flex items-center gap-2"
+          className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:brightness-110"
         >
           <Plus size={20} />
           Add Medicine

@@ -37,7 +37,7 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
 
   if (loading) {
     return (
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 text-center shadow-xl shadow-slate-950/10">
         <p className="text-slate-400">Loading inventory details...</p>
       </div>
     );
@@ -53,7 +53,7 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
           <ChevronLeft className="h-5 w-5" />
           Back
         </button>
-        <div className="flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-red-300">
+        <div className="flex items-center gap-3 rounded-[1.75rem] border border-slate-700/50 bg-rose-950/80 p-6 text-red-300 shadow-lg shadow-rose-950/20">
           <AlertCircle className="h-5 w-5 flex-shrink-0" />
           <p>{error}</p>
         </div>
@@ -75,7 +75,7 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
         Back to Inventories
       </button>
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6">
+      <div className="rounded-[2rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/10">
         <h2 className="text-3xl font-bold text-slate-100">{inventory.name}</h2>
         <p className="mt-2 text-sm text-slate-400">
           Created {new Date(inventory.created_at).toLocaleDateString()}
@@ -87,20 +87,20 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
           </div>
         )}
 
-        <div className="mt-5 rounded-2xl border border-slate-700/60 bg-slate-950/60 p-4">
+        <div className="mt-5 rounded-[1.75rem] border border-slate-700/50 bg-slate-950/80 p-5 shadow-lg shadow-slate-950/10">
           <p className="text-sm font-medium text-slate-300">Invite Code</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <code className="rounded-lg bg-slate-900 px-3 py-2 text-cyan-300 font-mono text-sm">
+            <code className="rounded-2xl bg-slate-900 px-4 py-3 text-cyan-300 font-mono text-sm">
               {inventory.invite_code}
             </code>
-            <span className="text-sm text-slate-500">
+            <span className="text-sm text-slate-400">
               Share this code with collaborators. Joining by code grants instant access.
             </span>
           </div>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-xl shadow-slate-950/10">
         <div className="flex items-center gap-3 mb-4">
           <Users className="h-5 w-5 text-cyan-400" />
           <h3 className="text-lg font-semibold text-slate-100">Members</h3>
@@ -109,11 +109,11 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
         {members.length === 0 ? (
           <p className="text-slate-400">No members yet</p>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {members.map((member) => (
               <div
                 key={member.id}
-                className="flex items-center justify-between rounded-lg border border-slate-700/50 bg-slate-800/30 p-3"
+                className="flex flex-col gap-3 rounded-[1.5rem] border border-slate-700/40 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/10 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex-1">
                   <p className="font-medium text-slate-100">{member.email || 'Unknown'}</p>
@@ -123,10 +123,10 @@ export function InventoryDetailsView({ inventoryId, onBack }: InventoryDetailsVi
                 </div>
                 <div className="text-sm text-slate-400">
                   {member.status === 'approved' && (
-                    <span className="text-green-400">Approved</span>
+                    <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-300">Approved</span>
                   )}
                   {member.status === 'pending' && (
-                    <span className="flex items-center gap-1 text-yellow-400">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-yellow-500/10 px-3 py-1 text-yellow-300">
                       <Lock className="h-3 w-3" />
                       Pending
                     </span>

@@ -85,7 +85,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
 
   if (loading) {
     return (
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-center">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-8 text-center shadow-2xl shadow-slate-950/20">
         <p className="text-slate-400">Loading approval dashboard...</p>
       </div>
     );
@@ -101,7 +101,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
           <ChevronLeft className="h-5 w-5" />
           Back
         </button>
-        <div className="flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900/50 p-6 text-red-300">
+        <div className="flex items-center gap-3 rounded-[1.75rem] border border-rose-500/30 bg-rose-950/80 p-6 text-red-300 shadow-lg shadow-rose-950/20">
           <AlertCircle className="h-5 w-5 flex-shrink-0" />
           <p>{error}</p>
         </div>
@@ -129,7 +129,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
       </div>
 
       {/* Pending Requests */}
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-xl shadow-slate-950/10">
         <h3 className="text-xl font-semibold text-slate-100 mb-4">
           Pending Requests {pendingRequests.length > 0 && <span className="text-cyan-400">({pendingRequests.length})</span>}
         </h3>
@@ -141,7 +141,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
             {pendingRequests.map((request) => (
               <div
                 key={request.id}
-                className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800/50 p-4"
+                className="flex flex-col gap-4 rounded-[1.5rem] border border-slate-700/40 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/10 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex-1">
                   <p className="font-medium text-slate-100">{request.email || 'Unknown User'}</p>
@@ -153,7 +153,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
                   <button
                     onClick={() => handleApprove(request.user_id)}
                     disabled={actionLoading !== null}
-                    className="flex items-center gap-1 rounded-lg bg-green-600 px-3 py-2 text-sm font-medium text-white hover:bg-green-700 disabled:opacity-50"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/10 transition hover:brightness-105 disabled:opacity-50"
                   >
                     <CheckCircle className="h-4 w-4" />
                     Approve
@@ -161,7 +161,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
                   <button
                     onClick={() => handleReject(request.user_id)}
                     disabled={actionLoading !== null}
-                    className="flex items-center gap-1 rounded-lg bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-rose-600/90 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-rose-500/10 transition hover:bg-rose-500 disabled:opacity-50"
                   >
                     <XCircle className="h-4 w-4" />
                     Reject
@@ -174,7 +174,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
       </div>
 
       {/* Approved Members */}
-      <div className="rounded-2xl border border-slate-700 bg-slate-900/50 p-6">
+      <div className="rounded-[1.75rem] border border-slate-700/50 bg-slate-900/80 p-6 shadow-xl shadow-slate-950/10">
         <h3 className="text-xl font-semibold text-slate-100 mb-4">
           Approved Members {approvedMembers.length > 0 && <span className="text-cyan-400">({approvedMembers.length})</span>}
         </h3>
@@ -186,7 +186,7 @@ export function ApprovalDashboard({ inventoryId, onBack }: ApprovalDashboardProp
             {approvedMembers.map((member) => (
               <div
                 key={member.id}
-                className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800/50 p-4"
+                className="flex flex-col gap-4 rounded-[1.5rem] border border-slate-700/40 bg-slate-950/80 p-4 shadow-lg shadow-slate-950/10 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex-1">
                   <p className="font-medium text-slate-100">{member.email || 'Unknown User'}</p>
